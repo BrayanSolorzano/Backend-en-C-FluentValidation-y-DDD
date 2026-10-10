@@ -12,3 +12,8 @@
 
 # Mac
 .DS_Store
+
+
+# Pruebas
+TestResults/
+coverage.json
