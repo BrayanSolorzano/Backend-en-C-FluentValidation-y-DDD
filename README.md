@@ -30,7 +30,10 @@ Una vez que los contenedores estén en ejecución, la API estará disponible en 
 - **Obtener Marcas de Autos:** 
   `GET http://localhost:5000/api/marcasautos`
 
-- **Documentación OpenAPI (Swagger):** 
+- **Documentación Interactiva (Scalar / Swagger):** 
+  `GET http://localhost:5000/scalar/v1`
+
+- **Especificación OpenAPI (JSON):** 
   `GET http://localhost:5000/openapi/v1.json`
 
 ## Pruebas Unitarias
@@ -38,3 +41,9 @@ Para ejecutar las pruebas unitarias localmente, ejecute el siguiente comando en 
 ```bash
 dotnet test
 ```
+
+## Link del Deploy
+https://backend-en-c-fluentvalidation-y-ddd.onrender.com/api/marcasautos
+
+## Scalar 
+https://backend-en-c-fluentvalidation-y-ddd.onrender.com/scalar/v1

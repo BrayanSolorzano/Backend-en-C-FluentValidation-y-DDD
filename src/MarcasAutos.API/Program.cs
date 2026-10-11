@@ -1,4 +1,5 @@
 using FluentValidation;
+using Scalar.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using MarcasAutos.Application.Services;
 using MarcasAutos.Application.Validators;
@@ -11,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Agregar servor de controladores
 builder.Services.AddControllers();
 
+// configurar la cadena de conexión a PostgreSQL
 // configurar la cadena de conexión a PostgreSQL
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -62,10 +64,9 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
+// Documentación interactiva de la API (Scalar / OpenAPI)
+app.MapOpenApi();
+app.MapScalarApiReference();
 
 app.UseAuthorization();
 app.MapControllers();
