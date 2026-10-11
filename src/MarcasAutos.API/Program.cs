@@ -9,8 +9,18 @@ using MarcasAutos.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Agregar servor de controladores
 builder.Services.AddControllers();
+
+// Configurar CORS
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
 
 // configurar la cadena de conexión a PostgreSQL
 // configurar la cadena de conexión a PostgreSQL
@@ -68,6 +78,7 @@ using (var scope = app.Services.CreateScope())
 app.MapOpenApi();
 app.MapScalarApiReference();
 
+app.UseCors();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();
